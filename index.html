@@ -8,6 +8,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<!--ajax library-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	  <!--logo-->
 <link rel="icon" href="https://avatars1.githubusercontent.com/u/67886518?s=460&u=44b84279fabf49e559b381cfc29b05d39575dd7e&v=4"type="image/gif"sizes="16*16">
 
@@ -464,33 +466,37 @@ Smartphone Compatible web template, free web designs for Nokia, Samsung, LG, Son
 <!-- mail -->
 	<div class="mail" id="mail">
 		<div class="container">
+			
 			<h3 class="w3l_head w3l_head1">Contact Me</h3>
 			<p class="w3ls_head_para w3ls_head_para1">send Me a message</p>
 			<div class="w3_mail_grids">
-				<form action="#" method="post">
+				<form id="submit-form"action="" >
 					<div class="col-md-6 w3_agile_mail_grid">
 						<span class="input input--ichiro">
 							<input class="input__field input__field--ichiro" type="text" id="input-25" placeholder=" " required="">
 							<label class="input__label input__label--ichiro" for="input-25">
 								<span class="input__label-content input__label-content--ichiro">Your Name</span>
+								
 							</label>
 						</span>
 						<span class="input input--ichiro">
 							<input class="input__field input__field--ichiro" type="email" id="input-26" placeholder=" " required="">
 							<label class="input__label input__label--ichiro" for="input-26">
 								<span class="input__label-content input__label-content--ichiro">Your Email</span>
+								
 							</label>
 						</span>
 						<span class="input input--ichiro">
 							<input class="input__field input__field--ichiro" type="text" id="input-27" placeholder=" " required="">
 							<label class="input__label input__label--ichiro" for="input-27">
 								<span class="input__label-content input__label-content--ichiro">Your Phone Number</span>
+								
 							</label>
 						</span>
 						
 					</div>
 					<div class="col-md-6 w3_agile_mail_grid">
-						<textarea name="Message" placeholder="Your Message" required=""></textarea>
+						<textarea name="Message" placeholder="type Your Message...." required=""></textarea>
 						<input type="submit" value="Submit">
 					</div>
 					<div class="clearfix"> </div>
@@ -663,5 +669,25 @@ Smartphone Compatible web template, free web designs for Nokia, Samsung, LG, Son
 			});
 	</script>
 <!-- //here ends scrolling icon -->
+<!--contact section ajax-->
+<script>
+	$("#submit-form").submit((e)=>{
+		e.preventDefault()
+		$.ajax({
+			url:"https://script.google.com/macros/s/AKfycbyGdDkZKoOnzXxeoaKJDkHlJigyDaOBg40ND7hYWQ/exec",
+			data:$("#submit-form").serialize(),
+			method:"post",
+			success:function (response){
+				alert("Form submitted successfully")
+				window.location.reload()
+				//window.location.href="https://google.com"
+			},
+			error:function (err){
+				alert("Something Error")
+
+			}
+		})
+	})
+</script>
 </body>
 </html>
